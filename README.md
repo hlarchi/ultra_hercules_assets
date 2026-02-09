@@ -3,7 +3,8 @@
 #### Introduction
 This repository contains audio and image assets used for the Ultra Hercules project. Follow the instructions below to add new assets to the repository.
 
-https://www.jsdelivr.com/tools/purge
+https://www.jsdelivr.com/tools/purge :
+https://cdn.jsdelivr.net/gh/hlarchi/ultra_hercules_assets@main/img/social/covers/amirl9wafi.jpg
 
 #### Adding Audio Assets
 1. **Directory Structure**: Place audio files in the `assets/audio/` directory.
