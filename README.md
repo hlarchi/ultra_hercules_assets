@@ -21,3 +21,12 @@ The track ID is composed of 6 numbers:
 - The first two are for the artist (e.g., `01` for Ultra Hercules).
 - The second two are for the album (`00` if the track is a single).
 - The last two are the rank of the track in the album or the rank of singles if it's a single. The first track should be `01` (not `00`).
+
+
+to analyse music quality check : https://academo.org/demos/spectrum-analyzer/
+
+to downlaoad from spotify : https://spotidown.app/en1
+or https://spotdown.org/fr
+
+to download from youtube : https://ssvid.net/en/youtube-to-mp3-converter-2
+or https://mp3convert.org/
