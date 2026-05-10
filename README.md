@@ -30,3 +30,5 @@ or https://spotdown.org/fr
 
 to download from youtube : https://ssvid.net/en/youtube-to-mp3-converter-2
 or https://mp3convert.org/
+
+from apple music : https://aaplmusicdownloader.com/
