@@ -28,7 +28,6 @@ to analyse music quality check : https://academo.org/demos/spectrum-analyzer/
 to downlaoad from spotify : https://spotidown.app/en1
 or https://spotdown.org/fr
 
-to download from youtube : https://ssvid.net/en/youtube-to-mp3-converter-2
-or https://mp3convert.org/
+to download from youtube : https://ssyoutube.is/convert/
 
 from apple music : https://aaplmusicdownloader.com/
