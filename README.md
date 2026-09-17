@@ -39,19 +39,22 @@ to download from youtube : https://ssyoutube.is/convert/
 
 from apple music : https://aaplmusicdownloader.com/
 
-remain : https://www.youtube.com/watch?v=JrRBRy_ZbZQ Ch3andek Ft Dj AFRICANO
-https://www.youtube.com/watch?v=1OkXaiBNfFc Caballero
-https://www.youtube.com/watch?v=9X3xSrWHJQM My Lady
-https://www.youtube.com/watch?v=fWMaCMujKrw Lwada3 a Sahbi (Reprise)
-https://www.youtube.com/watch?v=NaVD4Uj9OY8 Skati
-https://www.youtube.com/watch?v=gQ23txdLjRg 7NAYA
-https://www.youtube.com/watch?v=nppv2VXd9dQ SERREK
-https://www.youtube.com/watch?v=ozLfzQ21RIw JLWK
-https://www.youtube.com/watch?v=-k-UwO4nW2Y RMADI
-https://www.youtube.com/watch?v=Q-X-dS_tfyA Berrani
-https://www.youtube.com/watch?v=_aW3YsRDxIU Khamri
-https://www.youtube.com/watch?v=ThY7PavylIM Lkhayal
-https://www.youtube.com/watch?v=8cgePyXuO04 Zahri
+remain : https://www.youtube.com/watch?v=JvMtIe2Ojd4 7arb L`Mic - HOSPITAL UNDERGROUND Feat. ZANKA FLOW
+https://www.youtube.com/watch?v=Mh9W4QbMwzQ LYRICS MANTSAYADCH - Muslim & Shayfeen & Dizzy Dros & Ahmed Soultan by DJ Van
+https://www.youtube.com/watch?v=Ufsj0SBkge4 Muslim - Aka Rap - Compilation Dj Cut Killer 2008
+https://www.youtube.com/watch?v=gEecI-ZqPsY Muslim - Edounya 7ekmet (Feat. Islamic Gun) 2005 الدنيا حكمت
+ https://www.youtube.com/watch?v=89qANCJCJR0 Zanka Flow ( Muslim & L3arbé ) - 7naychen Part I - Compilation 9amouss Zna9i
+https://www.youtube.com/watch?v=K1SSMGOgHAo Zanka Flow (Muslim & L3arbé) - Flow Dbaa7 2008
+https://www.youtube.com/watch?v=zkVC2ojlefE Askri Dlam Feat. Muslim - RRawda 2005 الرَّوضة
+https://www.youtube.com/watch?v=EO_j1VhFWqM Style Souss Feat. Muslim - Nifa9 (نفاق)
+https://www.youtube.com/watch?v=SyRqeSlIjt4 Chagrin Éternel - Islamic Gun Feat. Muslim -2003- Compilation Positive School
+https://www.youtube.com/watch?v=N1O8_i_VJlY KaCheLa & Pen Power - 18 juin
+https://www.youtube.com/watch?v=ySdzs5WV2fA KaCheLa & Pen Power - FreeStyle Msskoun
+https://www.youtube.com/watch?v=VJYvS49OQZs Casa Crew Feat. Zanka Flow - Klam Rejal
+https://www.youtube.com/watch?v=Kx6G_EYtnz0 Tanjawa Daba - Vol.2 - Compilation Positive School 2002
+https://www.youtube.com/watch?v=Fm3HnUlnuzc 16 - Muslim - Lkhawa Dyali مسلم ـ الخـاوا ديـالي
+https://www.youtube.com/watch?v=89qANCJCJR0 Zanka Flow ( Muslim & L3arbé ) - 7naychen Part I - Compilation 9amouss Zna9i
+
 
 mkdir -p /Users/hlarchi/Downloads/opus && yt-dlp --no-warnings --extractor-args
 "youtube:player_client=android,web" -f "bestaudio/ba/b" -x --audio-format opus
