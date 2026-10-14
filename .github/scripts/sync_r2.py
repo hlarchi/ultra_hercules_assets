@@ -17,6 +17,7 @@ TOKEN = os.environ["CLOUDFLARE_API_TOKEN"]
 PUBLIC = os.environ.get("R2_PUBLIC_BASE_URL", "").rstrip("/")
 ROOT = Path(os.environ.get("SYNC_ROOT", ".")).resolve()
 CACHE_CONTROL = "public, max-age=604800"
+USER_AGENT = "ultra-hercules-assets-sync"
 SKIP_DIRS = {".git", ".github"}
 SKIP_NAMES = {".DS_Store"}
 CONTENT_TYPES = {
@@ -130,17 +131,46 @@ def sample_keys(files):
         )
         if key in present
     ]
-    nested = sorted(key for key in present if key.startswith("audio/04/") and key.endswith(".mp3"))
+    nested = sorted(
+        key for key in present if key.startswith("audio/04/") and key.endswith(".mp3")
+    )
     if nested:
         chosen.append(nested[0])
     images = sorted(
         key
         for key in present
-        if key.startswith("img/") and key.rsplit(".", 1)[-1].lower() in {"jpg", "jpeg", "png", "webp", "gif"}
+        if key.startswith("img/")
+        and key.rsplit(".", 1)[-1].lower() in {"jpg", "jpeg", "png", "webp", "gif"}
     )
     if images:
         chosen.append(images[0])
     return chosen
+
+
+def range_check(url):
+    for attempt in range(4):
+        req = urllib.request.Request(
+            url,
+            headers={"Range": "bytes=0-1023", "User-Agent": USER_AGENT},
+            method="GET",
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=60) as response:
+                return (
+                    response.status,
+                    response.headers.get("Accept-Ranges", ""),
+                    response.headers.get("Content-Range", ""),
+                )
+        except urllib.error.HTTPError as error:
+            if error.code in (403, 429, 500, 502, 503, 504) and attempt < 3:
+                time.sleep(2**attempt)
+                continue
+            return (
+                error.code,
+                error.headers.get("Accept-Ranges", ""),
+                error.headers.get("Content-Range", ""),
+            )
+    return 0, "", ""
 
 
 def verify(keys):
@@ -148,19 +178,12 @@ def verify(keys):
         raise SystemExit("R2_PUBLIC_BASE_URL is empty")
     failed = False
     for key in keys:
-        url = f"{PUBLIC}/{encode_key(key)}"
-        req = urllib.request.Request(url, headers={"Range": "bytes=0-1023"}, method="GET")
-        try:
-            with urllib.request.urlopen(req, timeout=60) as response:
-                status = response.status
-                accept = response.headers.get("Accept-Ranges", "")
-                content_range = response.headers.get("Content-Range", "")
-        except urllib.error.HTTPError as error:
-            status = error.code
-            accept = error.headers.get("Accept-Ranges", "")
-            content_range = error.headers.get("Content-Range", "")
+        status, accept, content_range = range_check(f"{PUBLIC}/{encode_key(key)}")
         ok = status == 206 and "bytes" in accept.lower()
-        print(f"check {status} accept-ranges={accept or '-'} range={content_range or '-'} {key}", flush=True)
+        print(
+            f"check {status} accept-ranges={accept or '-'} range={content_range or '-'} {key}",
+            flush=True,
+        )
         if not ok:
             failed = True
     if failed:
