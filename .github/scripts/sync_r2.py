@@ -179,7 +179,7 @@ def verify(keys):
     failed = False
     for key in keys:
         status, accept, content_range = range_check(f"{PUBLIC}/{encode_key(key)}")
-        ok = status == 206 and "bytes" in accept.lower()
+        ok = status == 206 and content_range.lower().startswith("bytes")
         print(
             f"check {status} accept-ranges={accept or '-'} range={content_range or '-'} {key}",
             flush=True,
@@ -187,7 +187,7 @@ def verify(keys):
         if not ok:
             failed = True
     if failed:
-        raise SystemExit("a sample did not answer 206 with Accept-Ranges: bytes")
+        raise SystemExit("a sample did not answer 206 with a byte Content-Range")
 
 
 def main():
